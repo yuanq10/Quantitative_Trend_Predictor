@@ -5,11 +5,12 @@ from src.predictors import predictor
 from src.simulator import simulator
 
 def main(symbol):
+    analysis_start_date = "2025-01-01"
     data = data_fetcher(symbol)
-    macd, signal, histogram = compute_macd(data)
-    cci = compute_cci(data)
-    k, d, j = compute_kdj(data)
-    close, boll_mid, boll_ub, boll_lb = compute_boll(data)
+    macd, signal, histogram = compute_macd(data, analysis_start_date)
+    cci = compute_cci(data, analysis_start_date)
+    k, d, j = compute_kdj(data, analysis_start_date)
+    close, boll_mid, boll_ub, boll_lb = compute_boll(data, analysis_start_date)
     #print(data)
     #print(macd, signal, histogram)
     macd_plotter(symbol, macd, signal, histogram)
